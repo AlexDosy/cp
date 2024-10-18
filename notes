@@ -1,0 +1,9 @@
+bubble sort-
+   this sorting algortihm is o(n2) for time complexity- uses two for loops compares adjacent elements throught and get the sorted array.  for (i=0;i<n-1;i++){ for(j=0;j<n-i-1;j++){}}
+
+selection sort-
+   this sorting algo is also o(n2) for time complex. - use two for loops considering first element as minimum value and search throught for othe small elements. for (i=0;i<n-1;i++){ for(j=i+1;j<n;j++){}}
+
+insertion sort- 
+   this sorting algo is also o(n2) for time complex. - use a for loop and a while loop for algo. consider whole array as sorted and unsorted and inserts smallest element to coorect position. 
+    for(i=1;i<n;i++){ int j=i-1; int current=arr[i]; while(j>=0 && arr[j]>key){j--;}}
