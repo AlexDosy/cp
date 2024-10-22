@@ -20,3 +20,9 @@ LINKED LIST - connected nodes and each node has a value and an address
    size() 
 arranging odd and even node on top of eachother
 using two pointers
+
+22/10
+reversing linked list - use two pointers prev=null, curr= head while(curr!=null) 
+finding maxTwinSum ith and n-1-ith:
+   we need to get half on linkedlist using two pointer fast and slow, after reverse from the slow, then add that linked list with head while(secondhalf!=null) return max of the sum
+  
