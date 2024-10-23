@@ -25,4 +25,12 @@ using two pointers
 reversing linked list - use two pointers prev=null, curr= head while(curr!=null) 
 finding maxTwinSum ith and n-1-ith:
    we need to get half on linkedlist using two pointer fast and slow, after reverse from the slow, then add that linked list with head while(secondhalf!=null) return max of the sum
+
+23/10
+bINARY TREE
+   maxdepth of binary tree recursive fn- left and right node equates to null add 1 to max of depths
+   leaf similar return boolean if two binary tree nodes leaf node are same- recursive fn same as above two variable for equating leaves
+      getting the leaves in another fn recursive DFS algorithm
+
+
   
