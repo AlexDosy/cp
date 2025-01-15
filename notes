@@ -31,6 +31,13 @@ bINARY TREE
    maxdepth of binary tree recursive fn- left and right node equates to null add 1 to max of depths
    leaf similar return boolean if two binary tree nodes leaf node are same- recursive fn same as above two variable for equating leaves
       getting the leaves in another fn recursive DFS algorithm
+
+
+15/01
+Arrys, Hashmap:
+   encoding and decoding by adding length of each string at begining followed by hash
+   anagrams
+   top k elements using bucket sort and hashmap reduced complexity to o(n)
    
 
   
