@@ -38,6 +38,10 @@ Arrys, Hashmap:
    encoding and decoding by adding length of each string at begining followed by hash
    anagrams
    top k elements using bucket sort and hashmap reduced complexity to o(n)
+
+16/01
+   prod of all elements without index element to store at index: using prefix and postfix and multiplying togetherin the same array  o(n) 
+   while bruteforce aproach takes o(n^2) and its using if, continues statements
    
 
   
