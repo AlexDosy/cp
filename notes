@@ -46,6 +46,9 @@ Arrys, Hashmap:
       bruteforce validate rows, colums, square in range(9) individually
       while using hashmap, and checking using intializing dict using collections.defaultdict(set) and checking for rows , column, for square we did a neet trick of int dividing r and c with 3 (sqaure is 3*3)
       this gave [(0-2,0-2)] posibile sqaure and validate hashmap like that 
+   longest sequence:
+      while bruteforce can be done using curr, streak
+      o(n) algo is using set and check if i-1 exist in that set, and proceed with the same stuff length iis added and checked and max of logest and length is returned
    
 
   
