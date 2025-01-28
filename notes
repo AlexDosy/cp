@@ -49,6 +49,17 @@ Arrys, Hashmap:
    longest sequence:
       while bruteforce can be done using curr, streak
       o(n) algo is using set and check if i-1 exist in that set, and proceed with the same stuff length iis added and checked and max of logest and length is returned
+
+28/01
+   max rainwater bars can hold:
+      bruteforce : o(n^2) j*min(height[j], height[i)
+      did using two pointer l=0, r=len(heights) incrementing l and decrementing r to suit req
+   same type problem(rainwater) hard
+      two pointer soln and add together the rainwater holding capacity
+
+   Stochmarket (easy problem)
+      buy low sell high
+      use two pointers l =0, r='1' after do the soln
    
 
   
