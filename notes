@@ -65,6 +65,10 @@ Arrys, Hashmap:
    logest substring without repeating char
       bruteforce: two for loops inside first  defined a set to determine the unique string and in second if two break out if two same chars are present
       sliding window l=0, one loop inside while in s, l+=1 s[l]
+30/01
+   longest repeating substring with charater replacment: using sliding window didnt understand that much
+
+
    
 
   
