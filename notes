@@ -67,7 +67,9 @@ Arrys, Hashmap:
       sliding window l=0, one loop inside while in s, l+=1 s[l]
 30/01
    longest repeating substring with charater replacment: using sliding window didnt understand that much
-
+5/02
+   return the min substring from s which has all characters in t
+      used sliding window, o(n) soln, res=[-1,-1],resLen=float("infinity"), have, need, hashmaps for counts
 
    
 
