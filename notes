@@ -74,7 +74,10 @@ Arrys, Hashmap:
 06/02
    checking all open bracket are closed in order
    bruteforce exceeds timelimit using while and replace
-   using stack we could complete in o(n) and checks in closeToOpen hashmap, 
+   using stack we could complete in o(n) and checks in closeToOpen hashmap,
+
+   Making fn for pop, top, getmin in stack 
+   for getmin() define a duplicate minStack along with defining stack
 
    
 
