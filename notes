@@ -71,6 +71,11 @@ Arrys, Hashmap:
    return the min substring from s which has all characters in t
       used sliding window, o(n) soln, res=[-1,-1],resLen=float("infinity"), have, need, hashmaps for counts
 
+06/02
+   checking all open bracket are closed in order
+   bruteforce exceeds timelimit using while and replace
+   using stack we could complete in o(n) and checks in closeToOpen hashmap, 
+
    
 
   
