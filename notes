@@ -81,6 +81,8 @@ Arrys, Hashmap:
 
 07/02
    Solving reverse polish notation(RPN) using stack. bruteforce is to traverse through element and comute each resuat and update the strings
+   
+   finding min of sorted rotated array, bruteforce min(), o(nlogn) we use middle pointer along with left and right pointer
 
    
 
