@@ -79,6 +79,9 @@ Arrys, Hashmap:
    Making fn for pop, top, getmin in stack 
    for getmin() define a duplicate minStack along with defining stack
 
+07/02
+   Solving reverse polish notation(RPN) using stack. bruteforce is to traverse through element and comute each resuat and update the strings
+
    
 
   
