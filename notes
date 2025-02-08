@@ -84,6 +84,9 @@ Arrys, Hashmap:
    
    finding min of sorted rotated array, bruteforce min(), o(nlogn) we use middle pointer along with left and right pointer
 
+08/02
+   search an element in an array using binary search using m,l,r
+
    
 
   
