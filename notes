@@ -90,6 +90,9 @@ Arrys, Hashmap:
 09/02
    merge two list in correctly sorted order, uses iteration
 
+10/02
+   reorder linked list fromfirst the last of last half, first find two list half the initial second half is reversed, the reorderd using two pointers
+
 
    
 
