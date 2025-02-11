@@ -94,6 +94,9 @@ Arrys, Hashmap:
    reorder linked list fromfirst the last of last half, first find two list half the initial second half is reversed, the reorderd using two pointers
    remove nth node from end of Linked list> put left, right pointer, right should be at nth node at start when right reach null, left is the node which we have to remove, devise a dummy node=ListNode(0,head) 
 
+11/02
+   copy random list -> using hashmap and two pass 
+
 
    
 
