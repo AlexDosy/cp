@@ -99,6 +99,9 @@ Arrys, Hashmap:
 12/02
    detect duplicate in list using floyd cycle detection algorithm-> fast ,slow meet at one point from there another slow will meet current slow at one point thats th result (--()))
 
+13/02
+   Merge K Sorted Linked Lists-> using mergeList fn
+
 
    
 
