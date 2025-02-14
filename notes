@@ -102,6 +102,9 @@ Arrys, Hashmap:
 13/02
    Merge K Sorted Linked Lists-> using mergeList fn
 
+14/02
+   invert a binary tree : used recursion after swaping left and right nodes
+
 
    
 
