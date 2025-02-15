@@ -107,6 +107,7 @@ Arrys, Hashmap:
    max depth of a tree, using dfs
 15/02
    diameter of a binary trree using dfs
+   check if 2 tree are equal-> recursion dfs
    
 
   
