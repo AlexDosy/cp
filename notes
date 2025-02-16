@@ -108,6 +108,9 @@ Arrys, Hashmap:
 15/02
    diameter of a binary trree using dfs
    check if 2 tree are equal-> recursion dfs
+
+16/02
+   check for is it a subtree, using recursion and same tree fn 
    
 
   
