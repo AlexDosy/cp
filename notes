@@ -111,6 +111,9 @@ Arrys, Hashmap:
 
 16/02
    check for is it a subtree, using recursion and same tree fn 
+
+18/02
+   return kth index of BST, iterative search
    
 
   
