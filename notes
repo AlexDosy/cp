@@ -122,5 +122,7 @@ Arrys, Hashmap:
    heappush and heappop for getting median from a random array
 21/02
    backtracking to find all the possible sum combination of target using descision tree
+24/02
+   no of islands - graph problem solved using bfs
 
   
