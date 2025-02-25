@@ -126,5 +126,6 @@ Arrys, Hashmap:
    no of islands - graph problem solved using bfs
 25/02
    making a copy of node along with neighbor connection
+   water flowing to both atlantic and pacific graph problem using dfs
 
   
