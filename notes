@@ -127,5 +127,8 @@ Arrys, Hashmap:
 25/02
    making a copy of node along with neighbor connection
    water flowing to both atlantic and pacific graph problem using dfs
+26/02
+   course schedule using dfs detect cycle? return false 
+   valid tree same as above
 
   
