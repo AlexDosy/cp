@@ -130,5 +130,6 @@ Arrys, Hashmap:
 26/02
    course schedule using dfs detect cycle? return false 
    valid tree same as above
-
+1/ 03
+   decode ways using dfs a-1 b-2.. z-26 how many decodng ways possible 
   
