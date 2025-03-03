@@ -132,4 +132,6 @@ Arrys, Hashmap:
    valid tree same as above
 1/ 03
    decode ways using dfs a-1 b-2.. z-26 how many decodng ways possible 
+3/03
+   longest strictly increasing subintegers- using DP bottop up
   
