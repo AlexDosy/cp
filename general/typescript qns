@@ -1,0 +1,110 @@
+1. What is TypeScript?
+
+Tests basic understanding of what TypeScript is and why it's used.
+
+2. What are the key differences between TypeScript and JavaScript?
+
+Focus on type safety, compilation, tooling, and features like interfaces.
+
+3. What are types in TypeScript?
+
+Explain primitives (string, number, boolean, etc.), arrays, tuples, any, unknown, etc.
+
+4. What is the any type? When should you use or avoid it?
+
+Tests understanding of type safety and potential risks of any.
+
+5. What is type inference in TypeScript?
+let count = 10; // inferred as number
+
+6. What is the difference between interface and type?
+
+Tests knowledge of structural typing and type aliases.
+
+🟡 Intermediate Level
+7. Explain readonly and const. What's the difference?
+
+readonly is used in types/interfaces for immutability of properties.
+
+const is for variables (not properties).
+
+8. What is the difference between unknown and any?
+
+unknown forces type checking before usage, any skips it.
+
+9. How does enum work in TypeScript?
+enum Direction { Up, Down }
+
+10. What are generics in TypeScript?
+function identity<T>(arg: T): T {
+  return arg;
+}
+
+
+Tests ability to write reusable, type-safe code.
+
+11. What is structural typing (duck typing) in TypeScript?
+
+Explains how two objects with the same shape are considered the same type.
+
+12. How does TypeScript handle null and undefined?
+
+Type safety with strictNullChecks, union types (string | null)
+
+13. What are union and intersection types?
+type A = { name: string };
+type B = { age: number };
+
+type C = A & B; // intersection
+type D = A | B; // union
+
+🔴 Advanced Level
+14. What are conditional types in TypeScript?
+type IsString<T> = T extends string ? true : false;
+
+15. What are mapped types?
+type ReadOnly<T> = {
+  readonly [P in keyof T]: T[P];
+};
+
+16. What is the difference between interface merging and type merging?
+
+Interfaces can be merged (declaration merging), types cannot.
+
+17. How do you use keyof, typeof, and in in TypeScript?
+type Keys = keyof { a: number; b: string }; // "a" | "b"
+
+18. What is the difference between never, void, and undefined?
+
+never: function never returns
+
+void: returns undefined or nothing
+
+undefined: literal value or type
+
+19. What is a type guard? How do you implement one?
+function isString(x: unknown): x is string {
+  return typeof x === "string";
+}
+
+20. What are utility types like Partial, Pick, Omit, Record?
+
+Built-in helpers for transforming types
+
+🧠 Bonus Conceptual Questions
+
+How does TypeScript support code refactoring and autocompletion?
+
+How do you migrate a JavaScript project to TypeScript?
+
+How do declaration files (.d.ts) work?
+
+What are some common pitfalls when using TypeScript with React or Node.js?
+
+⚙️ Real-World / Scenario-Based
+
+How would you define a type-safe API response?
+
+How do you enforce immutability in a data model?
+
+How do you handle complex object types in large-scale applications?
