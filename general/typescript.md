@@ -6,3 +6,7 @@ hashmap defining:
 
     map.has(value)
     map.set(val, propvalue)
+
+
+reducer fn eg
+arr.reduce((a,b)=>a+b,0)::finds sum of this array
