@@ -5,3 +5,6 @@ max :
 sort:
     arr.sort((a,b)=> a-b). //ascending
     arr.sort((a,b)=> b-a). //descending
+
+this is how array can be filled and initialized
+new Array(n).fill(1)
