@@ -10,3 +10,6 @@ hashmap defining:
 
 reducer fn eg
 arr.reduce((a,b)=>a+b,0)::finds sum of this array
+
+
+str.slice(0,-1)
