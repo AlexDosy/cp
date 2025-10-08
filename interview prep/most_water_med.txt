@@ -1,0 +1,20 @@
+function maxArea(height: number[]): number {
+    let l=0; 
+    let r= height.length - 1
+    let maxvol=0;
+
+    while(l<r){
+        let vol = (Math.min(height[l],height[r]) * (r-l))
+        maxvol=Math.max(maxvol,vol)
+        if(height[l]<height[r]){
+            l++
+        }
+        else{
+            r--
+        }
+        
+    }
+    return maxvol
+};
+
+we use two pointers to get the max area of the container
