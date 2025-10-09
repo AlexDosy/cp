@@ -13,3 +13,10 @@ arr.reduce((a,b)=>a+b,0)::finds sum of this array
 
 
 str.slice(0,-1)
+
+
+const arr = [1, 2, 3];
+const max = Math.max(...arr);
+
+//hashmap definition
+const map = new Map<number, number>();

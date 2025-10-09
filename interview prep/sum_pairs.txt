@@ -1,0 +1,19 @@
+we store in a frequency map(hash map). with num counts
+we loop through and get all the elements complement and check through the freq map
+
+
+  let count: Record<number, number>={}
+  let operation=0
+  for (const num of nums){
+    const  comp=k-num
+    if(count[comp] && count[comp]>0){
+        operation++
+        count[comp]--
+
+    }
+    else{
+        count[num]=(count[num]||0) +1
+    }
+
+  }
+  return opration
