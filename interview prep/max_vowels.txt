@@ -1,0 +1,2 @@
+we are using sliding window to find maximum no of vowels here
+    const isVowel = (ch: string) => 'aeiou'.includes(ch);

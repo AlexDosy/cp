@@ -20,3 +20,6 @@ const max = Math.max(...arr);
 
 //hashmap definition
 const map = new Map<number, number>();
+
+//arrow fn and includes
+const isVowel = (ch: string) => 'aeiou'.includes(ch);
