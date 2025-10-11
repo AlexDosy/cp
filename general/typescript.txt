@@ -23,3 +23,7 @@ const map = new Map<number, number>();
 
 //arrow fn and includes
 const isVowel = (ch: string) => 'aeiou'.includes(ch);
+
+//Set implementaion
+const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
+if(vowels.has(s[i])){
