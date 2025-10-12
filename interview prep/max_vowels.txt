@@ -33,3 +33,30 @@ function maxVowels(s: string, k: number): number {
 
 
 
+
+least complex soln
+function maxVowels(s: string, k: number): number {
+    const n = s.length;
+    const arr = new Uint8Array(n);
+
+    for (let i = 0; i < n; i++) {
+        const ch = s[i];
+        arr[i] = (ch === 'a' || ch === 'e' || ch === 'i' || ch === 'o' || ch === 'u') ? 1 : 0;
+    }
+
+    let count = 0;
+    for (let i = 0; i < k; i++) count += arr[i];
+    let maxCount = count;
+
+    for (let i = k; i < n; i++) {
+        count += arr[i] - arr[i - k];
+        if (count > maxCount) maxCount = count;
+        if (maxCount === k) return k;
+    }
+
+  return maxCount;
+
+};
+
+
+
