@@ -1,0 +1,16 @@
+function pivotIndex(nums: number[]): number {
+    let total = nums.reduce((a,b)=>a+b,0)
+    let left=0;
+
+    for (let i=0;i<nums.length;i++){
+        let right=total-left-nums[i]
+        if(right===left){
+            return i
+        }
+        left+=nums[i]
+    }
+    return -1
+};
+
+
+The pivot index is the index where the sum of all the numbers strictly to the left of the index is equal to the sum of all the numbers strictly to the index's right.
