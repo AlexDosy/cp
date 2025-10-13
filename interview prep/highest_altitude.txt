@@ -1,0 +1,16 @@
+function largestAltitude(gain: number[]): number {
+    let maxAlt = 0;
+    let current = 0;
+
+    for (let g of gain) {
+        current += g;
+        maxAlt = Math.max(maxAlt, current);
+    }
+
+    return maxAlt;
+}
+
+gain =
+[-5,1,5,0,-7]
+Output
+1
