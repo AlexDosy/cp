@@ -1,0 +1,24 @@
+function longestSubarray(nums: number[]): number {
+    let left =0;
+    let maxLength=0;
+    let zeroesCount =0
+    for (let right=0;right<nums.length; right++){
+        if(nums[right]===0){
+            zeroesCount++
+        }
+        while (zeroesCount>1){
+            if(nums[left]===0){
+                zeroesCount--;
+            }
+            left++;
+        }
+        maxLength=Math.max(maxLength,right-left);
+    }
+    return maxLength;
+};
+
+Use sliding window to track the longest window with at most one 0.
+
+When you have more than one 0, move left pointer until you're back to at most one 0.
+
+The trick: we must delete one element, so the actual result is windowSize - 1.
