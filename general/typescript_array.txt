@@ -8,3 +8,8 @@ sort:
 
 this is how array can be filled and initialized
 new Array(n).fill(1)
+
+//ts set implementation and filter function
+    const set2 = new Set(nums2)
+
+    const diff1= Array.from(set1).filter(num=>!set2.has(num))
