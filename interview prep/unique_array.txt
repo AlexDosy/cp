@@ -1,0 +1,28 @@
+function uniqueOccurrences(arr: number[]): boolean {
+    const countMap= new Map<number,number>()
+    for (const num of arr){
+        countMap.set(num, (countMap.get(num)||0 )+1);
+    }
+
+    const occurance = new Set<number>()
+    for (const count of countMap.values()){
+        if (occurance.has(count)){
+            return false
+        }
+        occurance.add(count)
+    }
+    return true
+};
+
+
+--->Map provides several methods for managing data, such as set(key, value) to add or update entries, get(key) to
+ retrieve a value, has(key) to check for key existence, delete(key) to remove an entry, clear() to remove all 
+ entries, and size to get the number of entries.
+
+
+--->Sets support several methods for manipulation:
+add(value): Adds a new element to the Set if it is not already present.
+has(value): Checks whether a specified value exists in the Set, returning true if it does and false otherwise.
+delete(value): Removes a specified element from the Set and returns true if the element was present, false otherwise.
+clear(): Removes all elements from the Set.
+size: A read-only property that returns the number of elements in the Set.
