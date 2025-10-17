@@ -1,0 +1,31 @@
+function closeStrings(word1: string, word2: string): boolean {
+    if (word1.length !== word2.length){
+        return false
+    }
+    const freqchar= (word:string): Map<string, number>=>{
+        const freq = new Map<string, number>();
+        for (const char of word){
+            freq.set(char,(freq.get(char)||0) +1)
+        }
+        return freq
+    }
+
+    const freq1= freqchar(word1)
+    const freq2= freqchar(word2)
+
+    const keys1=[...freq1.keys()].sort()
+    const keys2=[...freq2.keys()].sort()
+
+    if (keys1.join('') !== keys2.join('')) return false
+
+    const values1= [...freq1.values()].sort((a,b)=>a-b)
+    const values2= [...freq2.values()].sort((a,b)=>a-b)
+
+    for (let i=0;i<values2.length;i++){
+        if (values1[i]!==values2[i]) return false
+    }
+    return true
+
+};
+
+returning false for every possible undesirable scenario and at last return true
