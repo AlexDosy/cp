@@ -1,0 +1,18 @@
+function removeStars(s: string): string {
+    const stack:string[]=[];
+    for (const char of s){
+        if(char==="*"){
+            stack.pop();
+        }
+        else{
+            stack.push(char);
+        }
+    }
+    return stack.join('');
+};
+
+we are using stack and stack operations to do this.
+process the string left to right.
+Use a stack to build the result.
+When you see a letter → push it onto the stack.
+When you see a * → pop the last letter from the stack (which is the closest non-star character to its left).
