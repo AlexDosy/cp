@@ -1,0 +1,28 @@
+function asteroidCollision(asteroids: number[]): number[] {
+    const stack:number[]=[]
+    for (let ast of asteroids){
+        let collision= true
+        while(collision && ast<0 && stack.length>0 && stack[stack.length-1]>0){
+            let top = stack[stack.length - 1]
+            if(top<-ast){
+                stack.pop()
+            }
+            else if(top===-ast){
+                stack.pop()
+                collision = false
+            }
+            else{
+                collision = false
+            }
+        }
+        if(collision){
+            stack.push(ast)
+        }
+    }
+    return stack;
+};
+
+
+If the top of the stack is smaller, it gets popped (destroyed), and we keep checking the next one on the stack.
+If they're equal, both explode, and we stop.
+If the top of the stack is bigger, the current one (ast) is destroyed.
