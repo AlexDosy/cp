@@ -1,0 +1,21 @@
+class RecentCounter {
+    private queue:number[];
+    constructor() {
+        this.queue=[]
+    }
+
+    ping(t: number): number {
+        this.queue.push(t)
+        while(this.queue[0] < t-3000){
+            this.queue.shift()
+        }
+        return this.queue.length
+    }
+
+
+}
+
+We can use a queue (FIFO) to store timestamps.
+Each time we get a new t, push it into the queue.
+Then, remove timestamps that are older than t - 3000.
+The size of the queue at the end = number of recent pings.
