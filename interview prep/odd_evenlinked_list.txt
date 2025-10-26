@@ -1,0 +1,26 @@
+class ListNode {
+  val: number;
+  next: ListNode | null;
+  constructor(val?: number, next?: ListNode | null) {
+    this.val = val === undefined ? 0 : val;
+    this.next = next === undefined ? null : next;
+  }
+}
+
+function oddEvenList(head: ListNode | null): ListNode | null {
+  if (!head || !head.next) return head;
+
+  let odd: ListNode = head;
+  let even: ListNode = head.next;
+  let evenHead: ListNode = even; // keep the start of even list
+
+  while (even && even.next) {
+    odd.next = even.next;  // link next odd
+    odd = odd.next;        // move odd pointer
+    even.next = odd.next;  // link next even
+    even = even.next;      // move even pointer
+  }
+
+  odd.next = evenHead; // attach even list after odd list
+  return head;
+}
