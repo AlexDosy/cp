@@ -1,0 +1,54 @@
+function pairSum(head: ListNode | null): number {
+    const values: number[]=[]
+    let cur = head;
+    while(cur){
+        values.push(cur.val)
+        cur=cur.next
+    }
+
+    let maxSum=0
+    let left=0
+    let right = values.length - 1
+
+    while(left<right){
+        const twinSum= values[left]+values[right]
+        maxSum = Math.max(maxSum, twinSum)
+        left++
+        right--
+    }
+    return maxSum
+};
+just using two pointers here we arrived at the solution
+
+
+
+another soln:
+halving the linkedlist and reversing after arriving at the same solution saves memory -o(1)
+
+function pairSum(head: ListNode | null): number {
+    let slow = head
+    let fast = head
+    while (fast && fast.next){
+        slow= slow.next
+        fast = fast.next.next
+    }
+
+    let prev:ListNode|null=null;
+    let cur = slow
+    while(cur){
+        const nextTemp = cur.next
+        cur.next  = prev
+        prev = cur
+        cur = nextTemp
+    }
+
+    let maxSum = 0
+    let first  = head
+    let sec = prev
+    while(sec){
+        maxSum = Math.max(maxSum, first.val + sec.val)
+        first = first.next
+        sec = sec.next
+    }
+    return maxSum
+};
