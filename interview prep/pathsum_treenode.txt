@@ -1,0 +1,38 @@
+// Definition for a binary tree node.
+class TreeNode {
+    val: number;
+    left: TreeNode | null;
+    right: TreeNode | null;
+    constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+        this.val = val === undefined ? 0 : val;
+        this.left = left === undefined ? null : left;
+        this.right = right === undefined ? null : right;
+    }
+}
+
+function pathSum(root: TreeNode | null, targetSum: number): number {
+    // Map to store prefix sums and their frequencies
+    const prefixSums = new Map<number, number>();
+    prefixSums.set(0, 1); // Base case: one way to have sum = 0 before starting
+
+    function dfs(node: TreeNode | null, currSum: number): number {
+        if (!node) return 0;
+
+        currSum += node.val;
+        // Count paths that end at the current node and sum to targetSum
+        const count = prefixSums.get(currSum - targetSum) || 0;
+
+        // Add current prefix sum to the map
+        prefixSums.set(currSum, (prefixSums.get(currSum) || 0) + 1);
+
+        // Explore children
+        const result = count + dfs(node.left, currSum) + dfs(node.right, currSum);
+
+        // Backtrack: remove the current prefix sum before returning
+        prefixSums.set(currSum, prefixSums.get(currSum)! - 1);
+
+        return result;
+    }
+
+    return dfs(root, 0);
+}
