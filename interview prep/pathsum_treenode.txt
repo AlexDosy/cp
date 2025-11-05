@@ -18,7 +18,7 @@ function pathSum(root: TreeNode | null, targetSum: number): number {
     function dfs(node: TreeNode | null, currSum: number): number {
         if (!node) return 0;
 
-        currSum += node.val;
+        currSum += node.val;    
         // Count paths that end at the current node and sum to targetSum
         const count = prefixSums.get(currSum - targetSum) || 0;
 
