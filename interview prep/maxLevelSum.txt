@@ -1,0 +1,45 @@
+// Definition for a binary tree node.
+class TreeNode {
+  val: number;
+  left: TreeNode | null;
+  right: TreeNode | null;
+  constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+    this.val = val === undefined ? 0 : val;
+    this.left = left === undefined ? null : left;
+    this.right = right === undefined ? null : right;
+  }
+}
+
+function maxLevelSum(root: TreeNode | null): number {
+  if (!root) return 0;
+
+  let maxSum = -Infinity;   // Track the maximum sum found
+  let maxLevel = 1;         // Track which level has that sum
+  let currentLevel = 1;     // Level counter
+
+  const queue: TreeNode[] = [root];
+
+  while (queue.length > 0) {
+    const levelSize = queue.length;
+    let levelSum = 0;
+
+    // Traverse one level
+    for (let i = 0; i < levelSize; i++) {
+      const node = queue.shift()!;
+      levelSum += node.val;
+
+      if (node.left) queue.push(node.left);
+      if (node.right) queue.push(node.right);
+    }
+
+    // Update max if this level’s sum is higher
+    if (levelSum > maxSum) {
+      maxSum = levelSum;
+      maxLevel = currentLevel;
+    }
+
+    currentLevel++;
+  }
+
+  return maxLevel;
+}
