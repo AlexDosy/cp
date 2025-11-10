@@ -1,0 +1,30 @@
+function deleteNode(root: TreeNode | null, key: number): TreeNode | null {
+  if (root === null) return null;
+
+  if (key < root.val) {
+    // Go left
+    root.left = deleteNode(root.left, key);
+  } else if (key > root.val) {
+    // Go right
+    root.right = deleteNode(root.right, key);
+  } else {
+    // 🎯 Found the node to delete
+
+    // Case 1 & 2: Node with only one child or no child
+    if (root.left === null) return root.right;
+    if (root.right === null) return root.left;
+
+    // Case 3: Node with two children
+    let successor = findMin(root.right);
+    root.val = successor.val;                  // Copy value
+    root.right = deleteNode(root.right, successor.val); // Delete successor
+  }
+
+  return root;
+}
+
+// Helper function: find the smallest node in a subtree
+function findMin(node: TreeNode): TreeNode {
+  while (node.left !== null) node = node.left;
+  return node;
+}
