@@ -1,0 +1,19 @@
+function canVisitAllRooms(rooms: number[][]): boolean {
+    const visited = new Set<number>();
+
+    function dfs(room: number): void {
+        if (visited.has(room)) return;
+        visited.add(room);
+        for (const key of rooms[room]) {
+            dfs(key);
+        }
+    }
+
+    dfs(0); // Start from room 0
+
+    return visited.size === rooms.length;
+}
+
+// Example usage:
+const rooms = [[1], [2], [3], []];
+console.log(canVisitAllRooms(rooms)); // true
