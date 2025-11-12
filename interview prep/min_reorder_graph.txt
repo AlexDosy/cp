@@ -1,0 +1,37 @@
+function minReorder(n: number, connections: number[][]): number {
+    const graph: Map<number, Array<[number, boolean]>> = new Map();
+    
+    // Build the graph with roads and their directions
+    for (const [a, b] of connections) {
+        if (!graph.has(a)) graph.set(a, []);
+        if (!graph.has(b)) graph.set(b, []);
+        
+        // From a -> b, need to reverse the road (a -> b)
+        graph.get(a)!.push([b, true]);  // a -> b
+        graph.get(b)!.push([a, false]); // b -> a
+    }
+
+    let reorderCount = 0;
+    const visited = new Set<number>();
+
+    // DFS function to explore the tree
+    const dfs = (city: number): void => {
+        visited.add(city);
+        
+        // Visit all neighbors of the current city
+        for (const [nei, isReversed] of graph.get(city)!) {
+            if (!visited.has(nei)) {
+                // If the road is directed from city -> nei and we want to go in reverse, we count it
+                if (isReversed) {
+                    reorderCount++;
+                }
+                dfs(nei);
+            }
+        }
+    };
+
+    // Start DFS from city 0 (the capital city)
+    dfs(0);
+
+    return reorderCount;
+}
