@@ -1,0 +1,58 @@
+function calcEquation(
+  equations: string[][],
+  values: number[],
+  queries: string[][]
+): number[] {
+  const graph: Record<string, Record<string, number>> = {};
+
+  // Build graph
+  for (let i = 0; i < equations.length; i++) {
+    const [A, B] = equations[i];
+    const val = values[i];
+
+    if (!graph[A]) graph[A] = {};
+    if (!graph[B]) graph[B] = {};
+
+    graph[A][B] = val;
+    graph[B][A] = 1 / val;
+  }
+
+  // DFS helper
+  function dfs(
+    current: string,
+    target: string,
+    visited: Set<string>
+  ): number {
+    if (!(current in graph) || !(target in graph)) return -1.0;
+    if (current === target) return 1.0;
+
+    visited.add(current);
+
+    for (const neighbor in graph[current]) {
+      if (visited.has(neighbor)) continue;
+
+      const val = dfs(neighbor, target, visited);
+      if (val !== -1.0) {
+        return graph[current][neighbor] * val;
+      }
+    }
+
+    return -1.0;
+  }
+
+  // Evaluate queries
+  const results: number[] = [];
+  for (const [C, D] of queries) {
+    results.push(dfs(C, D, new Set()));
+  }
+
+  return results;
+}
+
+// Example usage:
+const equations = [["a", "b"], ["b", "c"]];
+const values = [2.0, 3.0];
+const queries = [["a", "c"], ["b", "a"], ["a", "e"], ["a", "a"], ["x", "x"]];
+
+console.log(calcEquation(equations, values, queries));
+// Output: [6.0, 0.5, -1.0, 1.0, -1.0]
