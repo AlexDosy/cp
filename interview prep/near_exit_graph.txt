@@ -1,0 +1,43 @@
+from collections import deque
+
+class Solution(object):
+    def nearestExit(self, maze, entrance):
+        """
+        :type maze: List[List[str]]
+        :type entrance: List[int]
+        :rtype: int
+        """
+        
+        m, n = len(maze), len(maze[0])
+        sr, sc = entrance
+        
+        queue = deque([(sr, sc, 0)])
+        
+        # Mark the entrance as visited
+        maze[sr][sc] = '+'
+        
+        directions = [(1,0), (-1,0), (0,1), (0,-1)]
+        
+        while queue:
+            r, c, dist = queue.popleft()
+            
+            for dr, dc in directions:
+                nr, nc = r + dr, c + dc
+                
+                # Check bounds
+                if not (0 <= nr < m and 0 <= nc < n):
+                    continue
+                
+                # Skip walls or visited cells
+                if maze[nr][nc] == '+':
+                    continue
+                
+                # If it's an exit
+                if (nr == 0 or nr == m - 1 or nc == 0 or nc == n - 1) and [nr, nc] != entrance:
+                    return dist + 1
+                
+                # Mark visited and add to queue
+                maze[nr][nc] = '+'
+                queue.append((nr, nc, dist + 1))
+        
+        return -1
