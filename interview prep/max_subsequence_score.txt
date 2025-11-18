@@ -1,0 +1,24 @@
+import heapq
+
+def maxScore(nums1, nums2, k):
+    # Pair nums2 with nums1, sort by nums2 descending
+    pairs = sorted(zip(nums2, nums1), reverse=True)
+
+    heap = []          # min-heap for k largest nums1
+    total = 0
+    best = 0
+
+    for n2, n1 in pairs:
+        # Add nums1 to heap
+        heapq.heappush(heap, n1)
+        total += n1
+
+        # If heap too big, remove smallest
+        if len(heap) > k:
+            total -= heapq.heappop(heap)
+
+        # When heap has size k, calculate score
+        if len(heap) == k:
+            best = max(best, total * n2)
+
+    return best
