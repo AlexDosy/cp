@@ -1,0 +1,27 @@
+import heapq
+
+class SmallestInfiniteSet:
+
+    def __init__(self):
+        self.current = 1                    # Next smallest number not yet popped or added back
+        self.added_back = set()             # Set to track numbers in heap
+        self.heap = []                      # Min-heap for added-back numbers
+
+    def popSmallest(self) -> int:
+        # If we have any numbers that were added back, pop the smallest of them
+        if self.heap:
+            smallest = heapq.heappop(self.heap)
+            self.added_back.remove(smallest)
+            return smallest
+        
+        # Otherwise return the next natural number
+        smallest = self.current
+        self.current += 1
+        return smallest
+
+    def addBack(self, num: int) -> None:
+        # Only add back numbers that were already popped (i.e., < current)
+        # and not already in the heap
+        if num < self.current and num not in self.added_back:
+            heapq.heappush(self.heap, num)
+            self.added_back.add(num)
