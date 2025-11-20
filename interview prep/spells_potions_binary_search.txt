@@ -1,0 +1,20 @@
+from bisect import bisect_left
+import math
+
+class Solution:
+    def successfulPairs(self, spells, potions, success):
+        potions.sort()
+        m = len(potions)
+        result = []
+
+        for spell in spells:
+            # min required potion to reach success
+            min_required = (success + spell - 1) // spell  # integer ceil
+
+            # find first potion >= min_required
+            idx = bisect_left(potions, min_required)
+
+            # count how many potions work
+            result.append(m - idx)
+
+        return result
