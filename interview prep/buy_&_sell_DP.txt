@@ -1,0 +1,9 @@
+def maxProfit(prices, fee):
+    hold = -prices[0]     # Maximum profit when holding a stock
+    cash = 0              # Maximum profit when not holding a stock
+
+    for price in prices[1:]:
+        hold = max(hold, cash - price)
+        cash = max(cash, hold + price - fee)
+
+    return cash
