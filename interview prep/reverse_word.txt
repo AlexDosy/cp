@@ -1,0 +1,3 @@
+def reverseWords(s: str) -> str:
+    words = s.split()        # splits on any whitespace
+    return " ".join(words[::-1])
