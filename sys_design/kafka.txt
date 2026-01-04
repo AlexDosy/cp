@@ -6,3 +6,15 @@ partition - log file having the message or data = leaders and followers
 
 
 partition key necessary fr scalling and correct grouuping
+
+
+if consumer goes down:
+    it reads and fetch according to latest offset, and rebalance the group
+
+does nt allow consumer retries:
+    if needed  use sqs
+
+perfomance optim:
+    batch messages and compress in  producer side
+
+retention policy - 7days or 1gb
