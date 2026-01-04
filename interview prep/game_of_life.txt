@@ -1,0 +1,34 @@
+def gameOfLife(board):
+    m, n = len(board), len(board[0])
+
+    # Directions for the 8 neighbors
+    directions = [
+        (-1, -1), (-1, 0), (-1, 1),
+        (0, -1),          (0, 1),
+        (1, -1),  (1, 0), (1, 1)
+    ]
+
+    def live_neighbors(r, c):
+        count = 0
+        for dr, dc in directions:
+            nr, nc = r + dr, c + dc
+            if 0 <= nr < m and 0 <= nc < n:
+                # & 1 gets the original state
+                count += board[nr][nc] & 1
+        return count
+
+    # First pass: determine next state using 2 bits
+    for i in range(m):
+        for j in range(n):
+            ln = live_neighbors(i, j)
+            if board[i][j] == 1:
+                if ln == 2 or ln == 3:
+                    board[i][j] = 3  # 01 -> 11 (live → live)
+            else:
+                if ln == 3:
+                    board[i][j] = 2  # 00 -> 10 (dead → live)
+
+    # Second pass: shift to get the next state
+    for i in range(m):
+        for j in range(n):
+            board[i][j] >>= 1
