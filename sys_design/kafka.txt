@@ -1,0 +1,8 @@
+producers
+consumers = groups A or B mapped to partition
+brokers - the servers holding the kafka
+topics - logical grouping of partitions
+partition - log file having the message or data = leaders and followers
+
+
+partition key necessary fr scalling and correct grouuping
