@@ -1,0 +1,14 @@
+def canConstruct(ransomNote: str, magazine: str) -> bool:
+    counts = {}
+
+    # Count letters in magazine
+    for ch in magazine:
+        counts[ch] = counts.get(ch, 0) + 1
+
+    # Use letters for ransomNote
+    for ch in ransomNote:
+        if ch not in counts or counts[ch] == 0:
+            return False
+        counts[ch] -= 1
+
+    return True
