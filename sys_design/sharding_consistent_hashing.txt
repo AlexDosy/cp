@@ -1,0 +1,5 @@
+id%n = Sm
+
+sharding in consistent hashing is like shards added in a ring and id arranged according to like a numberline
+
+
