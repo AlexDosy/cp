@@ -3,3 +3,8 @@ remove(index)
 
 static(cannot add new elements) and dynamic arrays
 in python there is only dynamic array
+
+
+
+strings dont have .sort()
+it is like: sorted(strings)
