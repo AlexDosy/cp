@@ -1,0 +1,8 @@
+Atomicity: statement should be exec fully- or else revert back to original state
+Consistency: changes should be made in the table in a predefined way
+Isolation: transaction doesnt interfere with one another- execute in a sequential manner
+Durability: ensure that data is safe even in event failures
+
+
+
+dynamo db -nosql key value
