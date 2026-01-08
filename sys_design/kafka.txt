@@ -1,5 +1,5 @@
-producers
-consumers = groups A or B mapped to partition
+producers == methods for send kafka data
+consumers = groups A or B mapped to partition - methods from kafka data
 brokers - the servers holding the kafka
 topics - logical grouping of partitions
 partition - log file having the message or data = leaders and followers
