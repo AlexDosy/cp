@@ -1,0 +1,8 @@
+CP: Consistency + Partition Tolerance
+
+    Behavior: If the system detects a network partition (communication break), it shuts down non-consistent nodes or blocks writes to ensure no data divergence occurs.
+
+AP: Availability + Partition Tolerance
+    Behavior: If a partition occurs, the system keeps accepting reads and writes on all nodes, even if they cannot 
+    talk to each other. This leads to "Eventual Consistency" (the nodes will sync up later when the network is fixed).
+
