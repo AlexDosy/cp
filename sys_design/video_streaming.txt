@@ -1,0 +1,8 @@
+live streaming:: RTMP, DASH
+
+prerecorded:: DASH, HTTP streaming
+
+Adaptive Bitrate Streaming
+
+RTMP: Real Time Media Protocol
+DASH: dynamice adaptive Streaming over HTTP

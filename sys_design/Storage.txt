@@ -1,3 +1,5 @@
 BLOB- binary large object
 
 timeseries DB- influx DB, Cassandra, : sensor , clicks, market data etc
+
+Graph DB - neo4j: PGQL for exec
