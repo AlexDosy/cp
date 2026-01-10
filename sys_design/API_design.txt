@@ -1,0 +1,25 @@
+REST:
+
+    GET: retrieval of data
+    POST: create data
+    PUT: idempotent update
+    PATCH: partial update
+    DELETE: remove data
+
+pagination:
+    page: 
+    cursor: GET /events?cursor=123&limit=25
+
+Authentication:
+    JWT:
+    Sessiontoken
+
+Ratelimiting:
+    funtional req: user id, status code, error handling
+    scale: 
+    non fn req: CAP theorem, low latency
+
+    1.fixed window
+    2. sliding window
+    3.sliding window counter
+    4. token bucket
