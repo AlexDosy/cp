@@ -1,0 +1,33 @@
+def simplifyPath(path: str) -> str:
+    stack = []
+    parts = path.split('/')
+
+    for part in parts:
+        if part == "" or part == ".":
+            continue
+        elif part == "..":
+            if stack:
+                stack.pop()
+        else:
+            stack.append(part)
+
+    return "/" + "/".join(stack)
+
+
+Split the path by /
+
+Initialize an empty stack
+
+For each segment:
+
+If empty or "." → skip
+
+If ".." → pop from stack (if not empty)
+
+Else → push the segment onto the stack
+
+Join the stack with /
+
+Add a leading /
+
+If stack is empty → return /

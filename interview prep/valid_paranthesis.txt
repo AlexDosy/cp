@@ -17,7 +17,6 @@ def isValid(s: str) -> bool:
     return len(stack) == 0
 
 When you see an opening bracket ((, {, [), push it onto the stack.
-
 When you see a closing bracket (), }, ]):
 
 The stack must not be empty.
