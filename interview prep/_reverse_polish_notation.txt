@@ -1,0 +1,45 @@
+class Solution(object):
+    def evalRPN(self, tokens):
+        """
+        :type tokens: List[str]
+        :rtype: int
+        """
+        stack = []
+
+        for t in tokens:
+            if t in {'+', '-', '*', '/'}:
+                b = stack.pop()
+                a = stack.pop()
+
+                if t == '+':
+                    stack.append(a + b)
+                elif t == '-':
+                    stack.append(a - b)
+                elif t == '*':
+                    stack.append(a * b)
+                else:  # division
+                    # truncate toward zero without float precision issues
+                    stack.append(int(float(a) / b))
+            else:
+                stack.append(int(t))
+
+        return stack[0]
+
+
+Traverse the tokens from left to right.
+
+If the token is a number → push it onto the stack.
+
+If the token is an operator:
+
+Pop the second operand (b)
+
+Pop the first operand (a)
+
+Compute a operator b
+
+Push the result back onto the stack
+
+At the end, the stack contains exactly one value, which is the result.
+
+⚠️ Division must truncate toward zero, which is important for negative numbers.
