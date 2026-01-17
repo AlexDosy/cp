@@ -44,4 +44,4 @@ result: current accumulated value
 
 sign: current sign (+1 or -1)
 
-stack: to store previous results and signs when encountering (
+stack: to store previous results and signs when encountering 

@@ -1,0 +1,21 @@
+def hasCycle(head):
+    slow = head
+    fast = head
+
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+
+        if slow == fast:
+            return True
+
+    return False
+
+
+Use slow pointer → moves 1 step
+
+Use fast pointer → moves 2 steps
+
+If there is a cycle, fast and slow will eventually meet
+
+If fast reaches null, there is no cycle
