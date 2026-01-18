@@ -28,17 +28,10 @@ class Solution:
 
 
 Since the digits are stored in reverse order, we can add the two lists node by node just like elementary addition:
-
 Initialize a carry = 0
-
 Traverse both lists at the same time
-
 At each step:
-
 Add the two digits (if present) and the carry
-
 The new digit is sum % 10
-
 Update carry as sum // 10
-
 If there’s a carry left at the end, append a new node
