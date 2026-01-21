@@ -1,0 +1,57 @@
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+def reverseKGroup(head: ListNode, k: int) -> ListNode:
+    dummy = ListNode(0)
+    dummy.next = head
+    prev_group = dummy
+
+    while True:
+        # Check if there are k nodes left
+        kth = prev_group
+        for _ in range(k):
+            kth = kth.next
+            if not kth:
+                return dummy.next
+
+        group_next = kth.next
+
+        # Reverse k nodes
+        prev, curr = group_next, prev_group.next
+        while curr != group_next:
+            temp = curr.next
+            curr.next = prev
+            prev = curr
+            curr = temp
+
+        # Reconnect reversed group
+        temp = prev_group.next
+        prev_group.next = kth
+        prev_group = temp
+
+
+
+
+We reverse the linked list in groups of size k:
+
+Use a dummy node to simplify pointer handling.
+
+For each group:
+
+Check if there are k nodes remaining.
+
+Reverse those k nodes.
+
+Connect the reversed group to the previous part.
+
+If fewer than k nodes remain, leave them unchanged.
+
+Key Observations
+
+Each node is visited a constant number of times → O(n) time
+
+Only pointers are modified → O(1) extra space
+
+Node values are not changed (as required)
