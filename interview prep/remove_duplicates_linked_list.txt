@@ -1,0 +1,35 @@
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+def deleteDuplicates(head: ListNode) -> ListNode:
+    dummy = ListNode(0)
+    dummy.next = head
+    prev = dummy
+    curr = head
+
+    while curr:
+        # Check if curr is a start of duplicates
+        if curr.next and curr.val == curr.next.val:
+            # Skip all nodes with this value
+            duplicate_val = curr.val
+            while curr and curr.val == duplicate_val:
+                curr = curr.next
+            prev.next = curr
+        else:
+            prev = curr
+            curr = curr.next
+
+    return dummy.next
+
+
+Because the list is sorted, duplicates appear in groups.
+
+We:
+
+Use a dummy node to easily handle cases where the head itself is duplicated.
+
+Traverse the list and skip entire groups of duplicate values.
+
+Only link nodes whose values appear exactly once.
