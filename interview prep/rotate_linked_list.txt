@@ -1,0 +1,45 @@
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+def rotateRight(head: ListNode, k: int) -> ListNode:
+    if not head or not head.next or k == 0:
+        return head
+
+    # Step 1: find length and tail
+    length = 1
+    tail = head
+    while tail.next:
+        tail = tail.next
+        length += 1
+
+    # Step 2: normalize k
+    k %= length
+    if k == 0:
+        return head
+
+    # Step 3: make list circular
+    tail.next = head
+
+    # Step 4: find new tail
+    steps_to_new_tail = length - k - 1
+    new_tail = head
+    for _ in range(steps_to_new_tail):
+        new_tail = new_tail.next
+
+    # Step 5: break the circle
+    new_head = new_tail.next
+    new_tail.next = None
+
+    return new_head
+
+
+Idea
+Rotating a list to the right by k means:
+The last k nodes move to the front
+The relative order stays the same
+Key observations
+If the list is empty, has one node, or k = 0 → return as is
+Rotating by k is the same as rotating by k % length
+If you temporarily make the list circular, the problem becomes easy
