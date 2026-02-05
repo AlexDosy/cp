@@ -1,0 +1,24 @@
+class Solution(object):
+    def flatten(self, root):
+        """
+        :type root: TreeNode
+        :rtype: None (modify in-place)
+        """
+        def dfs(node):
+            if not node:
+                return None
+
+            # Flatten left and right subtrees
+            left_tail = dfs(node.left)
+            right_tail = dfs(node.right)
+
+            # If there was a left subtree, we splice it in
+            if node.left:
+                left_tail.right = node.right
+                node.right = node.left
+                node.left = None
+
+            # Return the tail of the flattened subtree
+            return right_tail or left_tail or node
+
+        dfs(root)
