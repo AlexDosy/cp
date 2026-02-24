@@ -1,0 +1,35 @@
+from collections import defaultdict
+
+class Solution(object):
+    def calcEquation(self, equations, values, queries):
+        graph = defaultdict(list)
+
+        # 1. Build the graph
+        for (a, b), value in zip(equations, values):
+            graph[a].append((b, value))
+            graph[b].append((a, 1 / value))
+
+        # 2. DFS helper
+        def dfs(curr, target, visited):
+            if curr == target:
+                return 1.0
+
+            visited.add(curr)
+
+            for neighbor, weight in graph[curr]:
+                if neighbor not in visited:
+                    result = dfs(neighbor, target, visited)
+                    if result != -1.0:
+                        return result * weight
+
+            return -1.0
+
+        # 3. Process queries
+        results = []
+        for c, d in queries:
+            if c not in graph or d not in graph:
+                results.append(-1.0)
+            else:
+                results.append(dfs(c, d, set()))
+
+        return results
