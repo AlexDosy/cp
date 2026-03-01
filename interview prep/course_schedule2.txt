@@ -1,0 +1,30 @@
+from collections import defaultdict, deque
+
+class Solution(object):
+    def findOrder(self, numCourses, prerequisites):
+        graph = defaultdict(list)
+        indegree = [0] * numCourses
+
+        # build graph
+        for course, prereq in prerequisites:
+            graph[prereq].append(course)
+            indegree[course] += 1
+
+        # queue of courses with no prerequisites
+        queue = deque()
+        for i in range(numCourses):
+            if indegree[i] == 0:
+                queue.append(i)
+
+        order = []
+
+        while queue:
+            curr = queue.popleft()
+            order.append(curr)
+
+            for next_course in graph[curr]:
+                indegree[next_course] -= 1
+                if indegree[next_course] == 0:
+                    queue.append(next_course)
+
+        return order if len(order) == numCourses else []
