@@ -1,0 +1,37 @@
+from collections import deque
+
+class Solution(object):
+    def snakesAndLadders(self, board):
+        n = len(board)
+        target = n * n
+
+        def get_position(square):
+            r = (square - 1) // n
+            c = (square - 1) % n
+            row = n - 1 - r
+            if r % 2 == 1:
+                c = n - 1 - c
+            return row, c
+
+        queue = deque([(1, 0)])  # (square, moves)
+        visited = set([1])
+
+        while queue:
+            curr, moves = queue.popleft()
+
+            if curr == target:
+                return moves
+
+            for next_square in range(curr + 1, min(curr + 6, target) + 1):
+                r, c = get_position(next_square)
+
+                if board[r][c] != -1:
+                    dest = board[r][c]
+                else:
+                    dest = next_square
+
+                if dest not in visited:
+                    visited.add(dest)
+                    queue.append((dest, moves + 1))
+
+        return -1
