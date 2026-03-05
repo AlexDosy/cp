@@ -1,0 +1,27 @@
+from collections import deque
+
+class Solution(object):
+    def minMutation(self, startGene, endGene, bank):
+        bank = set(bank)
+        if endGene not in bank:
+            return -1
+
+        genes = ['A', 'C', 'G', 'T']
+        queue = deque([(startGene, 0)])
+        visited = set([startGene])
+
+        while queue:
+            curr, steps = queue.popleft()
+
+            if curr == endGene:
+                return steps
+
+            for i in range(8):
+                for g in genes:
+                    if g != curr[i]:
+                        mutation = curr[:i] + g + curr[i+1:]
+                        if mutation in bank and mutation not in visited:
+                            visited.add(mutation)
+                            queue.append((mutation, steps + 1))
+
+        return -1
