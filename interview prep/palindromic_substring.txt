@@ -1,0 +1,23 @@
+class Solution(object):
+    def longestPalindrome(self, s):
+        
+        def expand(left, right):
+            while left >= 0 and right < len(s) and s[left] == s[right]:
+                left -= 1
+                right += 1
+            return s[left+1:right]
+
+        res = ""
+
+        for i in range(len(s)):
+            # odd length
+            temp = expand(i, i)
+            if len(temp) > len(res):
+                res = temp
+
+            # even length
+            temp = expand(i, i+1)
+            if len(temp) > len(res):
+                res = temp
+
+        return res
